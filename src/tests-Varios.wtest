@@ -1,0 +1,52 @@
+
+import remiseria.*
+import viajes.*
+import vehiculos.*
+
+
+test "exported test from REPL session" {
+	const cachito = new Corsa()
+	const auto2 = new Corsa()
+	const auto3 = new Corsa()
+	const auto4 = new AutoStandard()
+	const auto5 = new Auto()
+	const standard1 = new AutoStandard()
+	const standard2 = new AutoStandard()
+	const standard3 = new AutoStandard()
+
+
+	const stylo = new Remiseria()
+	const cinco = new Remiseria()
+
+	cachito.color("Rojo")
+	auto2.color("Verde")
+	auto3.color("Negro")
+	auto4.tanqueAGasAdicional(true)
+	auto5.capacidad(5)
+	auto5.velocidadMaxima(160)
+	auto5.peso(1200)
+	auto5.color("Beige")
+	standard1.tanqueAGasAdicional(true)
+	trafic.interiorComodo(true)
+	trafic.motorBataton(true)
+	
+	stylo.agregarAFlota(cachito)
+	stylo.agregarAFlota(auto2)
+	stylo.agregarAFlota(auto3)
+	stylo.agregarAFlota(auto4)
+	stylo.agregarAFlota(auto5)
+	
+	cinco.agregarAFlota(cachito)
+	cinco.agregarAFlota(standard1)
+	cinco.agregarAFlota(standard2)
+	cinco.agregarAFlota(standard3)
+	cinco.agregarAFlota(trafic)
+	
+	assert.equals(6450,stylo.pesoTotalFlota())
+	assert.that(stylo.esRecomendable())
+	assert.equals("Beige",stylo.colorDelAutoMasRapido())
+	
+	assert.equals(10250,cinco.pesoTotalFlota())
+	assert.notThat(cinco.esRecomendable())
+	assert.equals("Rojo",cinco.colorDelAutoMasRapido())
+}
