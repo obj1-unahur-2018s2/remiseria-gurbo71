@@ -29,6 +29,7 @@ class Remiseria {
 	}
 	
 	method capacidadTotalYendoA(velocidad) {
-		return flota.filter({ f=>f.velocidadMaxima()>=velocidad.capacidad() })
+		//return flota.filter({ f=>f.velocidadMaxima()>=velocidad.capacidad() })
+		return flota.filter({f=>f.velocidadMaxima()>=velocidad}).sum({f=>f.capacidad()})
 	}
 }

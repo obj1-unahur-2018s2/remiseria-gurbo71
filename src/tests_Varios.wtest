@@ -1,4 +1,3 @@
-
 import remiseria.*
 import viajes.*
 import vehiculos.*
@@ -49,4 +48,5 @@ test "exported test from REPL session" {
 	assert.equals(10250,cinco.pesoTotalFlota())
 	assert.notThat(cinco.esRecomendable())
 	assert.equals("Rojo",cinco.colorDelAutoMasRapido())
+	assert.equals(20,stylo.capacidadTotalYendoA(100))
 }
